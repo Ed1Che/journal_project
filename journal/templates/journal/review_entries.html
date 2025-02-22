@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Review Entries</title>
+</head>
+<body>
+    <h1>Review Entries</h1>
+    <ul>
+        {% for entry in entries %}
+            <li>
+                <h2>{{ entry.title }}</h2>
+                <p>{{ entry.content }}</p>
+                <p>{{ entry.date_created }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'landing_page' %}">Back to Home</a>
+</body>
+</html>
