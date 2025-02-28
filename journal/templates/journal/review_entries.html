@@ -2,18 +2,28 @@
 <html>
 <head>
     <title>Review Entries</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
 <body>
-    <h1>Review Entries</h1>
-    <ul>
-        {% for entry in entries %}
-            <li>
-                <h2>{{ entry.title }}</h2>
-                <p>{{ entry.content }}</p>
-                <p>{{ entry.date_created }}</p>
-            </li>
-        {% endfor %}
-    </ul>
-    <a href="{% url 'landing_page' %}">Back to Home</a>
+    <div class="container review-entries">
+        <h1>Review Entries</h1>
+        <div class="card-holder">
+            {% for entry in entries %}
+                <div class="card">
+                    <div class="card-header">
+                        <h2>{{ entry.title }}</h2>
+                    </div>
+                    <div class="card-body">
+                        <p>{{ entry.content }}</p>
+                    </div>
+                    <div class="card-footer">
+                        <small>{{ entry.date_created }}</small>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <a href="{% url 'landing_page' %}" class="back-home">Back to Home</a>
+    </div>
 </body>
 </html>

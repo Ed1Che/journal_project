@@ -1,0 +1,220 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1, h2 {
+    color: #444;
+}
+
+a {
+    text-decoration: none;
+    color: #3498db;
+}
+
+a:hover {
+    color: #2980b9;
+}
+
+/* Landing Page Styles */
+.landing-page {
+    text-align: center;
+    padding: 50px 0;
+}
+
+.landing-page h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.landing-page a {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.landing-page a:hover {
+    background-color: #2980b9;
+}
+
+/* New Entry Page Styles */
+.new-entry {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.new-entry h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.new-entry form {
+    display: flex;
+    flex-direction: column;
+}
+
+.new-entry form p {
+    margin-bottom: 15px;
+}
+
+.new-entry form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.new-entry form input[type="text"],
+.new-entry form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.new-entry form button {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.new-entry form button:hover {
+    background-color: #2980b9;
+}
+
+/* Review Entries Page Styles */
+.review-entries {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.review-entries h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.review-entries ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.review-entries ul li {
+    background-color: #f9f9f9;
+    margin-bottom: 15px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.review-entries ul li h2 {
+    margin-top: 0;
+}
+
+.review-entries ul li p {
+    margin: 5px 0;
+}
+
+.review-entries a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.review-entries a:hover {
+    background-color: #2980b9;
+}
+
+/* Card Holder Styles */
+.card-holder {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.card-header h2 {
+    margin: 0;
+    font-size: 1.5em;
+    color: #444;
+}
+
+.card-body {
+    padding: 15px;
+    color: #555;
+}
+
+.card-footer {
+    padding: 10px 15px;
+    background-color: #f9f9f9;
+    border-top: 1px solid #eee;
+    text-align: right;
+}
+
+.card-footer small {
+    color: #777;
+    font-size: 0.9em;
+}
+
+/* Back to Home Link */
+.back-home {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
+    border-radius: 5px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.back-home:hover {
+    background-color: #2980b9;
+}

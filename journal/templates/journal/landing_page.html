@@ -2,10 +2,14 @@
 <html>
 <head>
     <title>Journal App</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}"> 
 </head>
 <body>
-    <h1>Welcome to Your Journal</h1>
-    <a href="{% url 'new_entry' %}">New Entry</a>
-    <a href="{% url 'review_entries' %}">Review Entries</a>
+    <div class="container landing-page">
+        <h1>Welcome to Your Journal</h1>
+        <a href="{% url 'new_entry' %}">New Entry</a>
+        <a href="{% url 'review_entries' %}">Review Entries</a>
+    </div>
 </body>
 </html>
