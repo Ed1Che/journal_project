@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Journal Entry</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+{% if messages %}
+    <div class="toast-container">
+        {% for message in messages %}
+            <div class="toast-message {{ message.tags }}">{{ message }}</div>
+        {% endfor %}
+    </div>
+{% endif %}
+
+<div class="container new-entry">
+    <div class="form-wrapper">
+        <h2>
+            <i class="fas fa-pen"></i> Edit Journal Entry
+        </h2>
+
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="save">Save</button>
+        </form>
+
+        <div class="back-home" style="margin-top: 20px;">
+            <a href="{% url 'review_entries' %}">&larr; Back to Entries</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

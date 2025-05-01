@@ -1,9 +1,10 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from .models import Entry
 from .forms import EntryForm
+from django.contrib import messages
 
 def landing_page(request):
     return render(request, 'journal/landing_page.html')
@@ -63,6 +64,7 @@ def create_entry(request):
             entry = form.save(commit=False)
             entry.user = request.user  # Assign entry to logged-in user
             entry.save()
+            messages.success(request, 'Entry created successfully!')
             return redirect('review_entries')
     else:
         form = EntryForm()
@@ -73,3 +75,28 @@ def create_entry(request):
 def review_entries(request):
     entries = Entry.objects.filter(user=request.user).order_by('-date_created')
     return render(request, 'journal/review_entries.html', {'entries': entries})
+
+
+# delete Entry (Only for logged-in users)
+@login_required
+def delete_journal_entry(request, entry_id):
+    entry = get_object_or_404(Entry, id=entry_id, user=request.user)
+    entry.delete()
+    messages.success(request, "Review deleted.")
+    return redirect('review_entries')  
+
+# edit Entry (Only for logged-in users)
+@login_required
+def edit_journal_entry(request, entry_id):
+    entry = get_object_or_404(Entry, id=entry_id, user=request.user)
+
+    if request.method == 'POST':
+        form = EntryForm(request.POST, instance=entry)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Review updated successfully.")
+            return redirect('review_entries')  
+    else:
+        form = EntryForm(instance=entry)
+
+    return render(request, 'journal/edit_entry.html', {'form': form, 'entry': entry})

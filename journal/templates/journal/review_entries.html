@@ -4,21 +4,44 @@
     <title>Review Entries</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
+
+    {% if messages %}
+     <div class="toast-container">
+            {% for message in messages %}
+                <div class="toast-message {{ message.tags }}">
+                    <i class="fas fa-info-circle"></i> {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
     <div class="container">
         <h1>Your Journal Entries</h1>
         <div class="card-holder">
             {% for entry in entries %}
                 <div class="card">
-                    <div class="card-header">
-                        <h2>{{ entry.title }}</h2>
+                    <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
+                        <h2 style="margin: 0;">{{ entry.title }}</h2>
+                        <div>
+                            <a href="{% url 'edit_entry' entry.id %}" title="Edit">
+                                <i class="fas fa-pen"></i>
+                            </a>
+                            <a href="{% url 'delete_entry' entry.id %}" onclick="return confirm('Delete this entry?');" title="Delete">
+                                <i class="fas fa-trash text-danger" style="margin-left: 10px;"></i>
+                            </a>
+                        </div>
                     </div>
                     <div class="card-body">
                         <p>{{ entry.content }}</p>
                     </div>
                     <div class="card-footer">
-                        <small>{{ entry.date_created }}</small>
+                        <small>Created: {{ entry.date_created }}</small><br>
+                        {% if entry.modified_date %}
+                            <small>Modified: {{ entry.modified_date }}</small>
+                        {% endif %}
                     </div>
                 </div>
             {% endfor %}
@@ -26,4 +49,5 @@
         <a href="{% url 'landing_page' %}" class="back-home">Back to Home</a>
     </div>
 </body>
+
 </html>

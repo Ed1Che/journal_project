@@ -218,3 +218,62 @@ a:hover {
 .back-home:hover {
     background-color: #2980b9;
 }
+
+/* Toast Notifications */
+.toast-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+.toast-message {
+    min-width: 250px;
+    max-width: 350px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    animation: fadeout 4s forwards;
+    opacity: 1;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Success */
+.toast-message.success {
+    background-color: #28a745;
+}
+
+/* Error */
+.toast-message.error {
+    background-color: #dc3545;
+}
+
+/* Info */
+.toast-message.info {
+    background-color: #17a2b8;
+}
+
+/* Warning */
+.toast-message.warning {
+    background-color: #ffc107;
+    color: #212529;
+}
+
+@keyframes fadeout {
+    0%, 90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-10px);
+        pointer-events: none;
+    }
+}
